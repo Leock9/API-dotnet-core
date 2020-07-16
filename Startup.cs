@@ -27,6 +27,8 @@ namespace TesteApi
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
+            services.AddSwaggerGen();
+
             services.AddScoped<IAlunoService, AlunoService>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
         }
@@ -37,6 +39,15 @@ namespace TesteApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API");
+                c.RoutePrefix = string.Empty;
+            });
+
 
             app.UseRouting();
 
