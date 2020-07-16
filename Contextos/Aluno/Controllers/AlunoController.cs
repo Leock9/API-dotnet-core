@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TesteApi.AlunoModel;
+using TesteApi.DTO.AlunoDTO;
 using TesteApi.Interface.Services.IAlunoService;
 
 namespace TesteApi.AlunoController
@@ -32,9 +33,23 @@ namespace TesteApi.AlunoController
 
         [Route("Adicionar")]
         [HttpPost]
-        public void AdicionarAluno([FromBody] string aluno)
+        public void AdicionarAluno([FromBody] AlunoDTO aluno)
         {
             _alunoService.AdicionarAluno(aluno);
+        }
+
+        [Route("Atualizar")]
+        [HttpPut]
+        public void AtualizarAluno([FromBody] AlunoDTO aluno) 
+        {
+            _alunoService.AtualizarAluno(aluno);
+        }
+
+        [Route("Excluir")]
+        [HttpDelete]
+        public void Excluir([FromQuery] int matricula) 
+        {
+            _alunoService.Excluir(matricula);
         }
     }    
 }

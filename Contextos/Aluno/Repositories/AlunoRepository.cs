@@ -22,7 +22,7 @@ namespace TesteApi.Repositories.AlunoRepository
         public Aluno Obter(int matricula)
         {
             return _alunos.AsNoTracking()
-            .SingleOrDefault(aluno => aluno.Matricula == matricula);
+            .FirstOrDefault(aluno => aluno.Matricula == matricula);
         }
 
         public async Task<IEnumerable<Aluno>> ObterAlunos()
@@ -33,6 +33,34 @@ namespace TesteApi.Repositories.AlunoRepository
         public void AdicionarAluno(Aluno aluno)
         {
             _alunos.Add(aluno);
+
+            Salvar();
+        }
+
+        public bool AlunoExiste(int matricula) 
+        {
+            return _alunos.Any(aluno => aluno.Matricula == matricula);
+        }
+
+        public void AtualizarAluno(Aluno aluno) 
+        {
+           _alunos.Update(aluno);
+
+            Salvar();
+        }
+
+        public void Excluir(int matricula) 
+        {
+            var aluno = _alunos.FirstOrDefault(aluno => aluno.Matricula == matricula);
+
+           _alunos.Remove(aluno);
+
+           Salvar();
+        }
+
+        private void Salvar() 
+        {
+            _dataContext.SaveChanges();
         }
     }
 }
