@@ -17,9 +17,9 @@ namespace TesteApi.AlunoController
             _alunoService = alunoService;
         }
 
-        [Route("Obter/Matricula")]
+        [Route("Obter/Matricula/{matricula:int}")]
         [HttpGet]
-        public IActionResult Obter([FromQuery] int matricula)
+        public ActionResult Obter(int matricula)
         {
            return Ok (_alunoService.Obter(matricula)); 
         }
