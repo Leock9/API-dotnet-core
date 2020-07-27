@@ -17,35 +17,32 @@ namespace TesteApi.AlunoController
             _alunoService = alunoService;
         }
 
-        [Route("Obter/Matricula/{matricula:int}")]
+        [Route("Matricula/{matricula:int}")]
         [HttpGet]
         public ActionResult Obter(int matricula)
         {
            return Ok (_alunoService.Obter(matricula)); 
         }
 
-        [Route("Obter/Alunos")]
+        [Route("Todos")]
         [HttpGet]
         public async Task<IEnumerable<Aluno>> ObterAlunos()
         {
             return await _alunoService.ObterAlunos();
         }
 
-        [Route("Adicionar")]
         [HttpPost]
         public void AdicionarAluno([FromBody] AlunoDTO aluno)
         {
             _alunoService.AdicionarAluno(aluno);
         }
 
-        [Route("Atualizar")]
         [HttpPut]
         public void AtualizarAluno([FromBody] AlunoDTO aluno) 
         {
             _alunoService.AtualizarAluno(aluno);
         }
 
-        [Route("Excluir")]
         [HttpDelete]
         public void Excluir([FromQuery] int matricula) 
         {
