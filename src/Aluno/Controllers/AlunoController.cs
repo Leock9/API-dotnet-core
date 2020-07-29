@@ -7,7 +7,7 @@ using TesteApi.Interface.Services.IAlunoService;
 
 namespace TesteApi.AlunoController
 {
-    [Route("Aluno")]
+    [Route("alunos")]
     public class AlunoController : Controller
     {
         private readonly IAlunoService _alunoService;
@@ -24,7 +24,6 @@ namespace TesteApi.AlunoController
            return Ok (_alunoService.Obter(matricula)); 
         }
 
-        [Route("Todos")]
         [HttpGet]
         public async Task<IEnumerable<Aluno>> ObterAlunos()
         {
@@ -32,13 +31,13 @@ namespace TesteApi.AlunoController
         }
 
         [HttpPost]
-        public void AdicionarAluno([FromBody] AlunoDTO aluno)
+        public void Adicionar([FromBody] AlunoDTO aluno)
         {
             _alunoService.AdicionarAluno(aluno);
         }
 
         [HttpPut]
-        public void AtualizarAluno([FromBody] AlunoDTO aluno) 
+        public void Atualizar([FromBody] AlunoDTO aluno) 
         {
             _alunoService.AtualizarAluno(aluno);
         }
