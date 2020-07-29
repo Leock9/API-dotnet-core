@@ -5,10 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TesteApi.Data.DataContext;
-using TesteApi.Interface.Repositories.IAlunoRepository;
-using TesteApi.Interface.Services.IAlunoService;
-using TesteApi.Repositories.AlunoRepository;
-using TesteApi.Services.AlunoService;
+using TesteApi.DependencyInjectionConfig;
 
 namespace TesteApi
 {
@@ -29,8 +26,7 @@ namespace TesteApi
 
             services.AddSwaggerGen();
 
-            services.AddScoped<IAlunoService, AlunoService>();
-            services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.ResolveDependencies();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
