@@ -33,13 +33,13 @@ namespace TesteApi.AlunoController
         [HttpPost]
         public void Adicionar([FromBody] AlunoDTO aluno)
         {
-            _alunoService.AdicionarAluno(aluno);
+            _alunoService.Adicionar(aluno);
         }
 
         [HttpPut]
         public void Atualizar([FromBody] AlunoDTO aluno) 
         {
-            _alunoService.AtualizarAluno(aluno);
+            _alunoService.Atualizar(aluno);
         }
 
         [HttpDelete]

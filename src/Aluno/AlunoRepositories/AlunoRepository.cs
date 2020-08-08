@@ -21,46 +21,38 @@ namespace TesteApi.Repositories.AlunoRepository
 
         public Aluno Obter(int matricula)
         {
-            return _alunos.AsNoTracking()
-            .FirstOrDefault(aluno => aluno.Matricula == matricula);
+            return _alunos
+            .AsNoTracking()
+            .SingleOrDefault(aluno => aluno.Matricula == matricula);
         }
 
         public async Task<IEnumerable<Aluno>> ObterAlunos()
         {
-            return await _alunos.AsNoTracking().ToListAsync();
+            return await _alunos
+            .AsNoTracking()
+            .ToListAsync();
         }
 
-        public void AdicionarAluno(Aluno aluno)
+        public void Adicionar(Aluno aluno)
         {
             _alunos.Add(aluno);
-
-            Salvar();
         }
 
-        public bool AlunoExiste(int matricula) 
+        public bool Existe(int matricula) 
         {
             return _alunos.Any(aluno => aluno.Matricula == matricula);
         }
 
-        public void AtualizarAluno(Aluno aluno) 
+        public void Atualizar(Aluno aluno) 
         {
            _alunos.Update(aluno);
-
-            Salvar();
         }
 
         public void Excluir(int matricula) 
         {
-            var aluno = _alunos.FirstOrDefault(aluno => aluno.Matricula == matricula);
+            var aluno = _alunos.SingleOrDefault(aluno => aluno.Matricula == matricula);
 
            _alunos.Remove(aluno);
-
-           Salvar();
-        }
-
-        private void Salvar() 
-        {
-            _dataContext.SaveChanges();
         }
     }
 }

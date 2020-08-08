@@ -11,11 +11,11 @@ namespace TesteApi.Interface.Repositories.IAlunoRepository
 
         Task<IEnumerable<Aluno>> ObterAlunos();
 
-        void AdicionarAluno(Aluno aluno);
+        void Adicionar(Aluno aluno);
 
-        bool AlunoExiste(int matricula);
+        bool Existe(int matricula);
 
-        void AtualizarAluno(Aluno aluno);
+        void Atualizar(Aluno aluno);
 
         void Excluir(int matricula);
     }

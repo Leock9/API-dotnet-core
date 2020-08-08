@@ -11,9 +11,9 @@ namespace TesteApi.Interface.Services.IAlunoService
 
         Task<IEnumerable<Aluno>> ObterAlunos();
     
-        void AdicionarAluno(AlunoDTO aluno);
+        void Adicionar(AlunoDTO aluno);
 
-        void AtualizarAluno(AlunoDTO aluno);
+        void Atualizar(AlunoDTO aluno);
 
         void Excluir(int matricula);
     }

@@ -27,5 +27,19 @@ namespace TesteApi.Factories.AlunoFactory
                 alunoDTO.Status
             );
         }
+
+         public static AlunoDTO Criar(Aluno aluno) 
+        {
+            return new AlunoDTO 
+            {
+                Id = aluno.Id,
+                Nome = aluno.Nome,
+                Idade = aluno.Idade,
+                Matricula = aluno.Matricula,
+                Status = aluno.Status
+            };
+        }
+
+        
     }    
 }

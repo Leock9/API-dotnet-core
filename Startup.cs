@@ -26,7 +26,7 @@ namespace TesteApi
 
             services.AddSwaggerGen();
 
-            services.ResolveDependencies();
+            services.AddServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

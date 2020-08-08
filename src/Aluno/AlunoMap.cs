@@ -14,11 +14,11 @@ namespace TesteApi.Data.AlunoMap
 
             builder.Property(aluno => aluno.Id).IsRequired();
 
-            builder.Property(aluno => aluno.Nome).IsRequired().HasMaxLength(120).HasColumnType("varchar(120)");
+            builder.Property(aluno => aluno.Nome).IsRequired().HasMaxLength(120);
 
-            builder.Property(aluno => aluno.Idade).IsRequired().HasColumnType("int");
+            builder.Property(aluno => aluno.Idade).IsRequired();
 
-            builder.Property(aluno => aluno.Matricula).IsRequired().HasMaxLength(5).HasColumnType("int");
+            builder.Property(aluno => aluno.Matricula).IsRequired().HasMaxLength(5);
 
             builder.Property(aluno => aluno.Status).IsRequired().HasColumnType("bit");
         }
