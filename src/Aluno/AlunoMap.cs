@@ -20,7 +20,7 @@ namespace TesteApi.Data.AlunoMap
 
             builder.Property(aluno => aluno.Matricula).IsRequired().HasMaxLength(5);
 
-            builder.Property(aluno => aluno.Status).IsRequired().HasColumnType("bit");
+            builder.Property(aluno => aluno.Status).IsRequired();
         }
     }
 }

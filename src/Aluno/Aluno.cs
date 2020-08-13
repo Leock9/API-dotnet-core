@@ -1,10 +1,11 @@
 using System;
+using TesteApi.StatusEnum;
 
 namespace TesteApi.AlunoModel
 {
     public sealed class Aluno
     {
-        public Aluno(string nome, int idade, int matricula, bool status)
+        public Aluno(string nome, int idade, int matricula, Status status)
         {
             Id = Guid.NewGuid();
             Nome = nome;
@@ -13,7 +14,7 @@ namespace TesteApi.AlunoModel
             Status = status;
         }
 
-        public Aluno(Guid id, string nome, int idade, int matricula, bool status)
+        public Aluno(Guid id, string nome, int idade, int matricula, Status status)
         {
             Id = id;
             Nome = nome;
@@ -26,6 +27,6 @@ namespace TesteApi.AlunoModel
         public string Nome { get; private set; }
         public int Idade { get; private set; }
         public int Matricula { get; private set; }
-        public bool Status { get; private set; }
+        public Status Status { get; private set; }
     }
 }

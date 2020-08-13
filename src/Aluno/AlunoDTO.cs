@@ -1,4 +1,5 @@
 using System;
+using TesteApi.StatusEnum;
 
 namespace TesteApi.DTO.AlunoDTO 
 {
@@ -8,6 +9,6 @@ namespace TesteApi.DTO.AlunoDTO
         public string Nome { get;  set; }
         public int Idade { get;  set; }
         public int Matricula { get;  set; }
-        public bool Status { get;   set; }
+        public Status Status { get;   set; }
     }
 }
